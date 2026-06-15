@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import '../styles/Results.css';
+import '../Styles/Results.css';
 
 const Results = () => {
   const location = useLocation();
