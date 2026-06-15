@@ -4,7 +4,7 @@ import Home from "./components/Home.jsx";
 import Assessment from "./components/Assessment.jsx";
 import Results from "./components/Result.jsx";
 import Header from "./components/Header.jsx";
-import "./styles/App.css";
+import "./Styles/App.css";
 
 function App() {
   return (
