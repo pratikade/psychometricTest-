@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { assessments, calculateAIScores } from '../Data/assessments.jsx';
-import '../styles/Assessment.css';
+import '../Styles/Assessment.css';
 
 const Assessment = () => {
   const { id } = useParams();
