@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { assessments, calculateAIScores } from '../data/assessments.jsx';
+import { assessments, calculateAIScores } from '../Data/assessments.jsx';
 import '../styles/Assessment.css';
 
 const Assessment = () => {
