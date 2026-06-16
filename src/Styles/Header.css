@@ -2,7 +2,6 @@
 
 /* Global fix for fixed header */
 body {
-  padding-top: 80px; /* Reserve space for fixed header */
   margin: 0;
 }
 
