@@ -1,3 +1,11 @@
+/* ===== HEADER / NAVBAR ===== */
+
+/* Global fix for fixed header */
+body {
+  padding-top: 80px; /* Reserve space for fixed header */
+  margin: 0;
+}
+
 .header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
@@ -8,13 +16,20 @@
   right: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+  /* FIX: Add explicit height */
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo {
@@ -74,22 +89,101 @@
   padding: 10px 24px;
   font-size: 0.9rem;
   border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.header-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.header-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.header-btn-outline {
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.header-btn-outline:hover {
+  background: #667eea;
+  color: white;
 }
 
 /* Responsive Header */
 @media (max-width: 768px) {
+  /* Update body padding for mobile */
+  body {
+    padding-top: 120px; /* More space for stacked header */
+  }
+  
+  .header {
+    height: auto;
+    min-height: 80px;
+    padding: 10px 0;
+  }
+  
   .header-content {
     flex-direction: column;
     gap: 1rem;
-    padding: 1rem 0;
+    padding: 0 15px;
   }
   
   .nav {
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .nav-link {
     padding: 0.5rem;
     font-size: 0.9rem;
   }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 140px; /* Even more space for smallest screens */
+  }
+  
+  .header-content {
+    gap: 0.8rem;
+  }
+  
+  .nav {
+    gap: 0.5rem;
+  }
+  
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+  
+  .logo-icon {
+    font-size: 1.5rem;
+  }
+  
+  .header-btn {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Smooth scroll for anchor links */
+html {
+  scroll-padding-top: 80px;
 }
