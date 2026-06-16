@@ -1,62 +1,18 @@
+/* ===== ASSESSMENT PAGE - FULLY RESPONSIVE ===== */
+
+/* Assessment Container - Full page with header spacing */
 .assessment {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
-  padding-top: 80px; /* Add padding to prevent header overlap */
+  padding-top: 80px; /* Match header height */
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to start */
   justify-content: center;
-  overflow: hidden; /* Prevent scrolling */
+  padding-bottom: 20px;
+  overflow-y: auto; /* Allow scrolling if needed */
 }
 
-
-/*  code that updates the both buttons */
-/* Force Navigation Buttons to be Always Visible */
-.assessment-container {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 100px);
-  position: relative;
-}
-
-.navigation-buttons {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: white;
-  padding: 1rem 0;
-  border-top: 1px solid #e5e7eb;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.question-section {
-  flex: 1;
-  overflow-y: auto;
-  padding-bottom: 80px; /* Space for fixed buttons */
-}
-
-.question-card {
-  min-height: auto;
-  margin-bottom: 0;
-}
-
-/* Ensure buttons are prominent */
-.nav-button {
-  min-height: 50px;
-  font-size: 1rem;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button:not(:disabled):hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-}
-/* till here */
-
-
-
+/* Main Assessment Container */
 .assessment-container {
   width: 100%;
   max-width: 1200px;
@@ -64,8 +20,8 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px); /* Fixed height to fit screen */
-  max-height: 800px; /* Maximum height */
+  min-height: calc(100vh - 120px);
+  height: auto; /* Changed from fixed height */
 }
 
 /* Header Section - Compact */
@@ -75,7 +31,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
 }
 
 .header-content {
@@ -83,10 +39,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .assessment-info {
   flex: 1;
+  min-width: 200px;
 }
 
 .assessment-title {
@@ -158,13 +117,14 @@
   font-size: 0.8rem;
 }
 
-/* Question Section - Compact and Scrollable if needed */
+/* Question Section - FIXED: Now fully visible */
 .question-section {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 0; /* Allow shrinking */
+  min-height: 300px;
+  padding: 10px 0;
 }
 
 .question-card {
@@ -175,7 +135,6 @@
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  flex-shrink: 0;
 }
 
 .question-header {
@@ -183,6 +142,7 @@
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .question-number {
@@ -204,12 +164,13 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: #1f2937;
-  line-height: 1.3;
+  line-height: 1.4;
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left; /* Changed from center for better readability */
+  word-wrap: break-word;
 }
 
-/* Options - Compact */
+/* Options */
 .options-container {
   display: flex;
   flex-direction: column;
@@ -227,7 +188,8 @@
   transition: all 0.3s ease;
   text-align: left;
   width: 100%;
-  min-height: 60px; /* Fixed height for options */
+  min-height: 60px;
+  cursor: pointer;
 }
 
 .option-button:hover {
@@ -261,6 +223,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
 .option-button.selected .option-circle {
@@ -291,6 +254,7 @@
   color: #374151;
   line-height: 1.4;
   flex: 1;
+  word-wrap: break-word;
 }
 
 .option-button.selected .option-text {
@@ -304,9 +268,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-top: auto; /* Push to bottom */
+  margin-top: 1.5rem;
   padding-top: 1.5rem;
   flex-shrink: 0;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
 }
 
 .nav-button {
@@ -320,7 +286,7 @@
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
-  min-width: 140px;
+  min-width: 120px;
   justify-content: center;
 }
 
@@ -449,25 +415,48 @@
   font-size: 1rem;
 }
 
-/* Responsive Design for Single Screen */
+/* ======================================== */
+/* RESPONSIVE DESIGN - FULLY OPTIMIZED */
+/* ======================================== */
+
+/* Tablets and Small Laptops */
+@media (max-width: 1024px) {
+  .assessment-container {
+    max-width: 100%;
+    padding: 15px;
+  }
+  
+  .question-card {
+    padding: 1.8rem;
+  }
+  
+  .question-text {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile Devices - Landscape and Portrait */
 @media (max-width: 768px) {
   .assessment {
-    padding: 80px 15px 20px;
+    padding-top: 120px; /* Match mobile header height */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
   }
   
   .assessment-container {
-    height: calc(100vh - 100px);
+    min-height: calc(100vh - 140px);
     padding: 0;
   }
   
   .assessment-header {
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.2rem;
     margin-bottom: 1rem;
   }
   
   .header-content {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
     align-items: flex-start;
   }
   
@@ -475,24 +464,78 @@
     font-size: 1.4rem;
   }
   
+  .assessment-description {
+    font-size: 0.9rem;
+  }
+  
   .progress-stats {
     align-self: stretch;
     justify-content: space-around;
+    gap: 0.5rem;
+  }
+  
+  .stat-value {
+    font-size: 1.2rem;
+  }
+  
+  .stat-label {
+    font-size: 0.7rem;
+  }
+  
+  .question-section {
+    min-height: 250px;
+    padding: 5px 0;
   }
   
   .question-card {
-    padding: 1.5rem;
-    margin: 0;
+    padding: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .question-header {
+    margin-bottom: 1rem;
+    gap: 0.4rem;
+  }
+  
+  .question-number {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+  
+  .question-total {
+    font-size: 0.8rem;
   }
   
   .question-text {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.5;
+  }
+  
+  .options-container {
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
   }
   
   .option-button {
     padding: 0.8rem 1rem;
-    min-height: 55px;
+    min-height: 50px;
+    border-radius: 10px;
+  }
+  
+  .option-indicator {
+    gap: 0.6rem;
+    margin-right: 0.8rem;
+  }
+  
+  .option-circle {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .option-letter {
+    font-size: 0.8rem;
+    min-width: 14px;
   }
   
   .option-text {
@@ -500,41 +543,39 @@
   }
   
   .navigation-buttons {
-    flex-direction: column;
-    gap: 0.8rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    justify-content: center;
   }
   
   .nav-button {
-    width: 100%;
-    min-width: auto;
+    padding: 0.7rem 1.2rem;
+    min-width: 100px;
+    font-size: 0.85rem;
+    flex: 1;
+    min-width: 80px;
   }
 }
 
+/* Small Mobile Devices */
 @media (max-width: 480px) {
   .assessment {
-    padding: 80px 10px 15px;
+    padding-top: 140px; /* Match smallest screen header height */
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
   }
   
-  .question-card {
-    padding: 1rem;
+  .assessment-container {
+    min-height: calc(100vh - 160px);
   }
   
-  .question-text {
-    font-size: 1.1rem;
-  }
-  
-  .option-button {
-    padding: 0.7rem 0.8rem;
-    min-height: 50px;
-  }
-  
-  .option-indicator {
-    gap: 0.5rem;
-    margin-right: 0.8rem;
-  }
-  
-  .option-text {
-    font-size: 0.85rem;
+  .assessment-header {
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
   }
   
   .assessment-title {
@@ -542,7 +583,269 @@
   }
   
   .assessment-description {
+    font-size: 0.8rem;
+  }
+  
+  .progress-stats {
+    gap: 0.3rem;
+  }
+  
+  .stat-value {
+    font-size: 1rem;
+  }
+  
+  .stat-label {
+    font-size: 0.65rem;
+  }
+  
+  .question-section {
+    min-height: 200px;
+  }
+  
+  .question-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  
+  .question-header {
+    margin-bottom: 0.8rem;
+  }
+  
+  .question-number {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .question-total {
+    font-size: 0.75rem;
+  }
+  
+  .question-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .options-container {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .option-button {
+    padding: 0.7rem 0.8rem;
+    min-height: 45px;
+    border-radius: 8px;
+  }
+  
+  .option-indicator {
+    gap: 0.5rem;
+    margin-right: 0.6rem;
+  }
+  
+  .option-circle {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .option-dot {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .option-letter {
+    font-size: 0.75rem;
+    min-width: 12px;
+  }
+  
+  .option-text {
+    font-size: 0.85rem;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .nav-button {
+    width: 100%;
+    min-width: auto;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Very Small Screens (iPhone SE, etc.) */
+@media (max-width: 380px) {
+  .assessment {
+    padding-top: 150px;
+  }
+  
+  .assessment-container {
+    min-height: calc(100vh - 170px);
+  }
+  
+  .question-text {
     font-size: 0.9rem;
+  }
+  
+  .option-text {
+    font-size: 0.8rem;
+  }
+  
+  .option-button {
+    padding: 0.6rem 0.7rem;
+    min-height: 40px;
+  }
+  
+  .option-indicator {
+    gap: 0.4rem;
+    margin-right: 0.5rem;
+  }
+  
+  .option-circle {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .option-letter {
+    font-size: 0.7rem;
+    min-width: 10px;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Short Height Screens (When viewport height is small) */
+@media (max-height: 700px) {
+  .assessment {
+    padding-top: 80px;
+    padding-bottom: 10px;
+  }
+  
+  .assessment-container {
+    min-height: calc(100vh - 100px);
+  }
+  
+  .assessment-header {
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .header-content {
+    margin-bottom: 0.5rem;
+  }
+  
+  .assessment-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .assessment-description {
+    font-size: 0.85rem;
+  }
+  
+  .progress-container {
+    margin-top: 0.5rem;
+  }
+  
+  .progress-bar {
+    height: 4px;
+  }
+  
+  .question-section {
+    min-height: 180px;
+    padding: 5px 0;
+  }
+  
+  .question-card {
+    padding: 1rem;
+  }
+  
+  .question-header {
+    margin-bottom: 0.8rem;
+  }
+  
+  .question-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .options-container {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .option-button {
+    padding: 0.6rem 1rem;
+    min-height: 40px;
+  }
+  
+  .option-text {
+    font-size: 0.85rem;
+  }
+  
+  .navigation-buttons {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 1rem;
+    min-width: 100px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra Short Height */
+@media (max-height: 600px) {
+  .assessment-header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .assessment-title {
+    font-size: 1rem;
+  }
+  
+  .assessment-description {
+    font-size: 0.75rem;
+  }
+  
+  .stat-value {
+    font-size: 0.9rem;
+  }
+  
+  .stat-label {
+    font-size: 0.6rem;
+  }
+  
+  .question-text {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .option-button {
+    padding: 0.4rem 0.8rem;
+    min-height: 35px;
+  }
+  
+  .option-text {
+    font-size: 0.8rem;
+  }
+  
+  .navigation-buttons {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  
+  .nav-button {
+    padding: 0.4rem 0.8rem;
+    min-width: 80px;
+    font-size: 0.75rem;
   }
 }
 
@@ -551,41 +854,17 @@ body.assessment-active {
   overflow: hidden;
 }
 
-/* Ensure no scrolling within assessment */
-.assessment,
-.assessment-container,
-.question-section,
-.question-card {
-  overflow: hidden !important;
+/* Smooth scrolling for the assessment container */
+.assessment-container {
+  scroll-behavior: smooth;
 }
 
-/* Compact layout for very small screens */
-@media (max-height: 700px) {
-  .assessment-header {
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .question-card {
-    padding: 1.5rem;
-  }
-  
-  .question-text {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .options-container {
-    gap: 0.6rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .option-button {
-    padding: 0.8rem 1rem;
-    min-height: 50px;
-  }
-  
-  .navigation-buttons {
-    padding-top: 1rem;
-  }
+/* Ensure text doesn't overflow */
+.question-text,
+.option-text,
+.assessment-title,
+.assessment-description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
